@@ -7,7 +7,6 @@
 <body>
     <div class="container">
         <h1>Simple Interest Calculator</h1>
-        <h6>Developed by Krupa 22112019</h6>
 
         <form method="POST">
             {% csrf_token %}
@@ -24,6 +23,7 @@
                     <th>Time</th>
                     <th>Interest</th>
                     <th>Timestamp</th>
+                    <th>Actions</th>  <!-- Add a new column for actions -->
                 </tr>
             </thead>
             <tbody>
@@ -34,6 +34,12 @@
                     <td>{{ calculation.time }}</td>
                     <td>{{ calculation.result }}</td>
                     <td>{{ calculation.timestamp }}</td>
+                    <td>
+                        <form action="{% url 'delete_calculation' calculation.id %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </td>
                 </tr>
                 {% endfor %}
             </tbody>
