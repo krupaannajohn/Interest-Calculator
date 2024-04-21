@@ -18,7 +18,7 @@ def index(request):
     return render(request,'index.html',{'form':form,'calculations':calculations})"""
 
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import CalculationForm
+from .forms import calculationForm
 from .models import Calculation
 
 # Create your views here: each view is associated with a template, here we do all the functions and operations that are to be done in the backend
